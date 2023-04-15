@@ -2,6 +2,10 @@ package db
 
 import (
 	"log"
+	"my-gram/comment"
+	"my-gram/photo"
+	"my-gram/socialmedia"
+	"os/user"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
@@ -13,6 +17,8 @@ func InitDatabase(dbConfig postgres.Config) *gorm.DB {
 		log.Fatal(err.Error())
 		panic(err)
 	}
+
+	dbInstance.AutoMigrate(user.User{}, photo.Photo{}, comment.Comment{}, socialmedia.Socialmedia{})
 
 	return dbInstance
 }
