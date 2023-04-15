@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"my-gram/handler"
+	"net/http"
 	"os"
 
 	"github.com/gin-gonic/gin"
@@ -24,5 +25,10 @@ func main() {
 
 	router := gin.Default()
 	handler.NewHandler(router)
+
+	router.GET("/", func(ctx *gin.Context) {
+		ctx.JSON(http.StatusOK, "Hello world")
+	})
+
 	router.Run()
 }
