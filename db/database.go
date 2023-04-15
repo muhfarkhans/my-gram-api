@@ -5,7 +5,7 @@ import (
 	"my-gram/comment"
 	"my-gram/photo"
 	"my-gram/socialmedia"
-	"os/user"
+	"my-gram/user"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
